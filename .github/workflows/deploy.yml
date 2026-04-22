@@ -31,7 +31,7 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT || 22 }}
           source: "dist/*"
-          target: "/q11e/folder83"
+          target: "/q11e/folder83/"
 
       - name: SSH and set permissions
         uses: appleboy/ssh-action@master
@@ -45,8 +45,5 @@ jobs:
             
             # 设置正确的权限
             sudo chown -R www-data:www-data /q11e/folder83
-            
-            # 可选：重载 Nginx 配置（如果需要）
-            # sudo nginx -t && sudo systemctl reload nginx
 
             echo "Deployment completed successfully!"
