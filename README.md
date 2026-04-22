@@ -62,7 +62,7 @@ ssh-keygen -t rsa -b 4096 -f github_actions_key -N ""
 cat github_actions_key.pub
 
 # 将公钥添加到服务器
-ssh-copy-id -i github_actions_key.pub root@YOUR_SERVER_IP
+ssh-copy-id -i github_actions_key.pub root@sugarblack.top
 ```
 
 ### GitHub Actions 工作流
