@@ -8,38 +8,19 @@
 test/
 ├── .github/
 │   └── workflows/
-│       ├── deploy.yml          # Git 部署方式
-│       └── deploy-scp.yml      # SFTP 部署方式
+│       ├── deploy.yml          # SCP部署
 ├── src/
 │   ├── App.vue                 # 主组件
 │   ├── main.js                 # 入口文件
 │   └── style.css               # 样式文件
-├── dist/                       # 构建输出（由构建生成）
+├── dist/                       # 构建输出
 ├── index.html                  # HTML 模板
 ├── package.json                # 项目依赖
 ├── vite.config.js              # Vite 配置
 └── .gitignore
 ```
 
-## 快速开始
 
-### 1. 本地开发
-
-```bash
-cd test
-npm install
-npm run dev
-```
-
-### 2. 本地构建
-
-```bash
-cd test
-npm install
-npm run build
-```
-
-## CI/CD 部署配置
 
 ### GitHub Secrets 配置
 
@@ -67,22 +48,8 @@ ssh-copy-id -i github_actions_key.pub root@sugarblack.top
 
 ### GitHub Actions 工作流
 
-本项目提供两种部署方式：
 
-1. **deploy.yml** - 使用 Git 拉取代码部署
-2. **deploy-scp.yml** - 使用 SCP 传输构建产物部署（推荐）
-
-## 服务器配置（CentOS）
-
-### 1. 安装 Nginx
-
-```bash
-sudo yum install nginx -y
-sudo systemctl start nginx
-sudo systemctl enable nginx
-```
-
-### 2. 配置 Nginx
+### 1. 配置 Nginx
 
 编辑 `/etc/nginx/conf.d/sugarblack.top.conf`：
 
@@ -135,16 +102,4 @@ sudo chown -R $USER:$USER /var/www/sugarblack
 2. 在 GitHub Actions 中查看部署状态
 3. 访问 https://sugarblack.top:83 查看部署结果
 
-## 学习要点
 
-- **GitHub Actions**：自动化的 CI/CD 工作流
-- **Node.js 部署**：前端项目的构建和部署
-- **SSH 密钥认证**：安全的服务器访问方式
-- **Nginx 配置**：静态文件服务器配置
-- **Vue3 + Vite**：现代化的前端开发工具链
-
-## 资源
-
-- [GitHub Actions 文档](https://docs.github.com/en/actions)
-- [Vite 官方文档](https://vitejs.dev/)
-- [Nginx 官方文档](https://nginx.org/en/docs/)
