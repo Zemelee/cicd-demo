@@ -43,7 +43,7 @@ jobs:
           script: |
             echo "Deploying to sugarblack.top:83..."
             
-            # 设置正确的权限
-            sudo chown -R www-data:www-data /q11e/folder83
-
+            # 设置正确的权限（使用当前用户）
+            chown -R $USER:$USER /q11e/folder83
+            
             echo "Deployment completed successfully!"
